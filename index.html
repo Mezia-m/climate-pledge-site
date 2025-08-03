@@ -1,0 +1,59 @@
+<section id="hero">
+  <h1>Take the Climate Action Pledge</h1>
+  <button onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})">
+    Take the Pledge
+  </button>
+</section>
+
+<section id="kpi">
+  <h2>Our Impact</h2>
+  <p>🎯 Target Pledges: 1,000,000</p>
+  <p>✅ Total Pledges: <span id="pledgeCount">2314</span></p>
+  <p>👩‍🎓 Students: 1300 | 👨‍💼 Professionals: 800 | 👥 Others: 214</p>
+</section>
+
+<section id="why">
+  <h2>Why Take Climate Action?</h2>
+  <p>Your small actions lead to global impact. Be part of the change!</p>
+</section>
+
+<section id="form">
+  <h2>Pledge Form</h2>
+  <form id="pledgeForm">
+    <input type="text" placeholder="Name" required />
+    <input type="email" placeholder="Email" required />
+    <input type="tel" placeholder="Mobile" required />
+    <input type="text" placeholder="State" />
+    <select>
+      <option>Student</option>
+      <option>Working Professional</option>
+      <option>Other</option>
+    </select>
+    <h3>Commitments</h3>
+    <label><input type="checkbox"> Save electricity</label><br>
+    <label><input type="checkbox"> Reduce plastic use</label><br>
+    <label><input type="checkbox"> Plant trees</label><br>
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+<section id="certificate" style="display:none;">
+  <h2>🎉 Certificate</h2>
+  <p id="certText"></p>
+</section>
+
+<section id="wall">
+  <h2>Pledge Wall</h2>
+  <table>
+    <tr>
+      <th>ID</th><th>Name</th><th>Date</th><th>State</th><th>Profile</th><th>🌍 Stars</th>
+    </tr>
+    <tr>
+      <td>001</td><td>Arya</td><td>Aug 2</td><td>Karnataka</td><td>Student</td><td>⭐⭐⭐</td>
+    </tr>
+  </table>
+</section>
+
+<footer>
+  📢 Your email and mobile are private. Used only for verification.
+</footer>
