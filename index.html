@@ -1,59 +1,151 @@
-<section id="hero">
-  <h1>Take the Climate Action Pledge</h1>
-  <button onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})">
-    Take the Pledge
-  </button>
+<header class="nav">
+  <div class="container nav-inner">
+    <div class="logo">🌱 <span>Climate Pledge</span></div>
+    <nav class="nav-links">
+      <a href="#hero">Home</a>
+      <a href="#kpis">Impact</a>
+      <a href="#pledge-form">Pledge</a>
+      <a href="#pledge-wall">Our Heroes</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <h1 class="hero-title">Join the Climate Action Movement</h1>
+    <p class="hero-sub">Small choices — collective change. Take a pledge today and inspire your community.</p>
+    <div class="hero-ctas">
+      <button class="btn primary" onclick="scrollToForm()">Take the Pledge</button>
+      <a class="btn outline" href="#kpis">See Impact</a>
+    </div>
+  </div>
 </section>
 
-<section id="kpi">
-  <h2>Our Impact</h2>
-  <p>🎯 Target Pledges: 1,000,000</p>
-  <p>✅ Total Pledges: <span id="pledgeCount">2314</span></p>
-  <p>👩‍🎓 Students: 1300 | 👨‍💼 Professionals: 800 | 👥 Others: 214</p>
+<!-- KPIs -->
+<section id="kpis" class="kpi-section container">
+  <h2 class="section-title">Community Impact</h2>
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">Target</div>
+      <div class="kpi-value">1,000,000</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Achieved</div>
+      <div class="kpi-value" id="achieved-pledges">0</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Students</div>
+      <div class="kpi-value" id="student-count">0</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Working Professionals</div>
+      <div class="kpi-value" id="professional-count">0</div>
+    </div>
+  </div>
 </section>
 
-<section id="why">
-  <h2>Why Take Climate Action?</h2>
-  <p>Your small actions lead to global impact. Be part of the change!</p>
+<!-- WHY -->
+<section class="why container">
+  <div class="why-inner">
+    <div class="why-image" aria-hidden="true"></div>
+    <div class="why-text">
+      <h3>Why Your Action Matters</h3>
+      <p>Each habit we adopt creates a ripple. From energy choices to waste reduction, small daily actions add up — and your pledge helps create a visible movement that others can join.</p>
+    </div>
+  </div>
 </section>
 
-<section id="form">
-  <h2>Pledge Form</h2>
-  <form id="pledgeForm">
-    <input type="text" placeholder="Name" required />
-    <input type="email" placeholder="Email" required />
-    <input type="tel" placeholder="Mobile" required />
-    <input type="text" placeholder="State" />
-    <select>
-      <option>Student</option>
-      <option>Working Professional</option>
-      <option>Other</option>
-    </select>
-    <h3>Commitments</h3>
-    <label><input type="checkbox"> Save electricity</label><br>
-    <label><input type="checkbox"> Reduce plastic use</label><br>
-    <label><input type="checkbox"> Plant trees</label><br>
-    <button type="submit">Submit</button>
+<!-- PLEDGE FORM -->
+<section id="pledge-form" class="form-section container">
+  <h2 class="section-title">Take the Pledge</h2>
+  <form id="pledgeForm" class="pledge-form">
+    <div class="row">
+      <input type="text" id="name" placeholder="Full name" required>
+      <input type="email" id="email" placeholder="Email" required>
+    </div>
+    <div class="row">
+      <input type="tel" id="mobile" placeholder="Mobile number" required>
+      <input type="text" id="state" placeholder="State" required>
+    </div>
+
+    <div class="row">
+      <select id="profile" required>
+        <option value="">Profile type</option>
+        <option>Student</option>
+        <option>Working Professional</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <small class="privacy-note">Mobile and Email are required for verification and will never be shown publicly.</small>
+
+    <h4 class="commit-title">Commitment Themes</h4>
+
+    <div class="commitments-grid">
+      <div class="theme-card">
+        <h5>Energy</h5>
+        <label><input type="checkbox" value="Use renewable energy"> Use renewable energy</label>
+        <label><input type="checkbox" value="Switch off unused devices"> Switch off unused devices</label>
+        <label><input type="checkbox" value="Use energy-efficient appliances"> Use energy-efficient appliances</label>
+      </div>
+
+      <div class="theme-card">
+        <h5>Waste</h5>
+        <label><input type="checkbox" value="Reduce single-use plastic"> Reduce single-use plastic</label>
+        <label><input type="checkbox" value="Recycle waste properly"> Recycle waste properly</label>
+        <label><input type="checkbox" value="Compost organic waste"> Compost organic waste</label>
+      </div>
+
+      <div class="theme-card">
+        <h5>Community</h5>
+        <label><input type="checkbox" value="Plant trees"> Plant trees</label>
+        <label><input type="checkbox" value="Promote awareness"> Promote awareness</label>
+        <label><input type="checkbox" value="Volunteer in cleanups"> Volunteer in cleanups</label>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn primary">Submit Pledge</button>
+    </div>
   </form>
 </section>
 
-<section id="certificate" style="display:none;">
-  <h2>🎉 Certificate</h2>
-  <p id="certText"></p>
+<!-- CERTIFICATE -->
+<section id="certificate" class="certificate-section container" style="display:none;">
+  <h2 class="section-title">🎖 Your Climate Hero Certificate</h2>
+  <div id="certificate-content" class="certificate-preview"></div>
+  <div class="cert-actions">
+    <button id="downloadCert" class="btn primary">Download PNG</button>
+  </div>
 </section>
 
-<section id="wall">
-  <h2>Pledge Wall</h2>
-  <table>
-    <tr>
-      <th>ID</th><th>Name</th><th>Date</th><th>State</th><th>Profile</th><th>🌍 Stars</th>
-    </tr>
-    <tr>
-      <td>001</td><td>Arya</td><td>Aug 2</td><td>Karnataka</td><td>Student</td><td>⭐⭐⭐</td>
-    </tr>
-  </table>
+<!-- PLEDGE WALL -->
+<section id="pledge-wall" class="pledge-wall container">
+  <h2 class="section-title">Our Climate Heroes</h2>
+  <div class="table-wrap">
+    <table class="pledge-table">
+      <thead>
+        <tr>
+          <th>Pledge ID</th>
+          <th>Name</th>
+          <th>Date</th>
+          <th>State</th>
+          <th>Profile</th>
+          <th>Love for Planet</th>
+        </tr>
+      </thead>
+      <tbody id="pledgeWall"></tbody>
+    </table>
+  </div>
 </section>
 
-<footer>
-  📢 Your email and mobile are private. Used only for verification.
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>© <span id="year"></span> Climate Pledge • Mobile & Email kept private</div>
+  </div>
 </footer>
+
+<!-- html2canvas for certificate download -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
