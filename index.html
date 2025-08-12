@@ -1,155 +1,219 @@
-<header class="nav">
-  <div class="container nav-inner">
-    <div class="logo">🌱 <span>Climate Pledge</span></div>
-    <nav class="nav-links">
-      <a href="#hero">Home</a>
-      <a href="#kpis">Impact</a>
-      <a href="#pledge-form">Pledge</a>
-      <a href="#pledge-wall">Our Heroes</a>
-    </nav>
-  </div>
-</header>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 
-<!-- HERO -->
-<section id="hero" class="hero">
-  <div class="hero-overlay"></div>
-  <div class="container hero-content">
-    <h1 class="hero-title">Join the Climate Action Movement</h1>
-    <p class="hero-sub">Small choices — collective change. Take a pledge today and inspire your community.</p>
-    <div class="hero-ctas">
-      <button class="btn primary" onclick="scrollToForm()">Take the Pledge</button>
-      <a class="btn outline" href="#kpis">See Impact</a>
-    </div>
-  </div>
-</section>
 
-<!-- KPIs -->
-<section id="kpis" class="kpi-section container">
-  <h2 class="section-title">Community Impact</h2>
-  <div class="kpi-grid">
-    <div class="kpi-card">
-      <div class="kpi-label">Target</div>
-      <div class="kpi-value">1,000,000</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Achieved</div>
-      <div class="kpi-value" id="achieved-pledges">0</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Students</div>
-      <div class="kpi-value" id="student-count">0</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Working Professionals</div>
-      <div class="kpi-value" id="professional-count">0</div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY -->
-<section class="why container">
-  <div class="why-inner">
-    <div class="why-image" aria-hidden="true"></div>
-    <div class="why-text">
-      <h3>Why Your Action Matters</h3>
-      <p>Each habit we adopt creates a ripple. From energy choices to waste reduction, small daily actions add up — and your pledge helps create a visible movement that others can join.</p>
-    </div>
-  </div>
-</section>
-
-<!-- PLEDGE FORM -->
-<section id="pledge-form" class="form-section container">
-  <h2 class="section-title">Take the Pledge</h2>
-  <form id="pledgeForm" class="pledge-form">
-    <div class="row">
-      <input type="text" id="name" placeholder="Full name" required>
-      <input type="email" id="email" placeholder="Email" required>
-    </div>
-    <div class="row">
-      <input type="tel" id="mobile" placeholder="Mobile number" required>
-      <input type="text" id="state" placeholder="State" required>
-    </div>
-
-    <div class="row">
-      <select id="profile" required>
-        <option value="">Profile type</option>
-        <option>Student</option>
-        <option>Working Professional</option>
-        <option>Other</option>
-      </select>
-    </div>
-
-    <small class="privacy-note">Mobile and Email are required for verification and will never be shown publicly.</small>
-
-    <h4 class="commit-title">Commitment Themes</h4>
-
-    <div class="commitments-grid">
-      <div class="theme-card">
-        <h5>Energy</h5>
-        <label><input type="checkbox" value="Use renewable energy"> Use renewable energy</label>
-        <label><input type="checkbox" value="Switch off unused devices"> Switch off unused devices</label>
-        <label><input type="checkbox" value="Use energy-efficient appliances"> Use energy-efficient appliances</label>
-      </div>
-
-      <div class="theme-card">
-        <h5>Waste</h5>
-        <label><input type="checkbox" value="Reduce single-use plastic"> Reduce single-use plastic</label>
-        <label><input type="checkbox" value="Recycle waste properly"> Recycle waste properly</label>
-        <label><input type="checkbox" value="Compost organic waste"> Compost organic waste</label>
-      </div>
-
-      <div class="theme-card">
-        <h5>Community</h5>
-        <label><input type="checkbox" value="Plant trees"> Plant trees</label>
-        <label><input type="checkbox" value="Promote awareness"> Promote awareness</label>
-        <label><input type="checkbox" value="Volunteer in cleanups"> Volunteer in cleanups</label>
-      </div>
-    </div>
-
-    <div class="form-actions">
-      <button type="submit" class="btn primary">Submit Pledge</button>
-    </div>
-  </form>
-</section>
-
-<!-- CERTIFICATE -->
-<section id="certificate" class="certificate-section container" style="display:none;">
-  <h2 class="section-title">🎖 Your Climate Hero Certificate</h2>
-  <div id="certificate-content" class="certificate-preview"></div>
-  <div class="cert-actions">
-    <button id="downloadCert" class="btn primary">Download PNG</button>
-  </div>
-</section>
-
-<!-- PLEDGE WALL -->
-<section id="pledge-wall" class="pledge-wall container">
-  <h2 class="section-title">Our Climate Heroes</h2>
-  <div class="table-wrap">
-    <table class="pledge-table">
-      <thead>
-        <tr>
-          <th>Pledge ID</th>
-          <th>Name</th>
-          <th>Date</th>
-          <th>State</th>
-          <th>Profile</th>
-          <th>Love for Planet</th>
-        </tr>
-      </thead>
-      <tbody id="pledgeWall"></tbody>
-    </table>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="container footer-inner">
-    <div>© <span id="year"></span> Climate Pledge • Mobile & Email kept private</div>
-  </div>
-</footer>
-
-<!-- html2canvas for certificate download -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="script.js"></script>
-</body>
-</html>
-
+    <header id="home">
+        <div class="container">
+            <h1>Join the Climate Action Movement</h1>
+            <p>Your small changes today can create a big impact tomorrow. Take the pledge and be part of the solution.</p>
+            <a href="#pledge" class="btn">Take the Pledge</a>
+        </div>
+    </header>
+    
+    <section class="stats">
+        <div class="container">
+            <h2>Our Collective Impact</h2>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <div class="stat-number" id="target-pledges">1,000,000</div>
+                    <div class="stat-label">Target Pledges</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="achieved-pledges">247</div>
+                    <div class="stat-label">Achieved Pledges</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="students-count">128</div>
+                    <div class="stat-label">Students</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="professionals-count">119</div>
+                    <div class="stat-label">Professionals</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="impact-section">
+        <div class="container">
+            <h2>Why Your Pledge Matters</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <h3>Global Movement</h3>
+                    <p>When millions of people make small changes in their daily habits, it adds up to massive reductions in carbon emissions worldwide.</p>
+                </div>
+                <div class="impact-card">
+                    <h3>Real Impact</h3>
+                    <p>Each pledge represents concrete actions that reduce waste, conserve energy, and promote sustainable living.</p>
+                </div>
+                <div class="impact-card">
+                    <h3>Inspire Others</h3>
+                    <p>Your commitment encourages friends, family, and colleagues to join the movement, creating a ripple effect.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="form-section" id="pledge">
+        <div class="container">
+            <h2>Make Your Climate Pledge</h2>
+            <form id="pledgeForm" class="pledge-form">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Mobile Number *</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+    <label for="state">State</label>
+    <input type="text" id="state" placeholder="Enter your state">
+</div>
+                
+                
+                <div class="form-group">
+                    <label for="profile">Profile Type *</label>
+                    <select id="profile" required>
+                        <option value="">Select your profile</option>
+                        <option value="Student">Student</option>
+                        <option value="Working Professional">Working Professional</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="commitments">
+                    <h3>Your Climate Commitments (Select at least one) *</h3>
+                    
+                    <div class="commitment-theme">
+                        <h3>Energy Conservation</h3>
+                        <div class="commitment-item">
+                            <input type="checkbox" id="commitment1" name="commitment" value="Turn off lights when not in use">
+                            <label for="commitment1">Turn off lights when not in use</label>
+                        </div>
+                        <div class="commitment-item">
+                            <input type="checkbox" id="commitment2" name="commitment" value="Use energy-efficient appliances">
+                            <label for="commitment2">Use energy-efficient appliances</label>
+                        </div>
+                        <div class="commitment-item">
+                            <input type="checkbox" id="commitment3" name="commitment" value="Set thermostat 1°C higher in summer">
+                            <label for="commitment3">Set thermostat 1°C higher in summer</label>
+                        </div>
+                    </div>
+                    
+                    <div class="commitment-theme">
+                        <h3>Sustainable Travel</h3>
+                        <div class="commitment-item">
+                            <input type="checkbox" id="commitment4" name="commitment" value="Walk or bike for short trips">
+                            <label for="commitment4">Walk or bike for short trips</label>
+                        </div>
+                        <div class="commitment-item">
+                            <input type="checkbox" id="commitment5" name="commitment" value="Use public transportation weekly">
+                            <label for="commitment5">Use public transportation weekly</label>
+                        </div>
+                        <div class="commitment-item">
+                            <input type="checkbox" id="commitment6" name="commitment" value="Consider electric for next vehicle">
+                            <label for="commitment6">Consider electric for next vehicle</label>
+                        </div>
+                    </div>
+                    
+                    <div class="commitment-theme">
+                        <h3>Waste Reduction</h3>
+                        <div class="commitment-item">
+                            <input type="checkbox" id="commitment7" name="commitment" value="Reduce single-use plastics">
+                            <label for="commitment7">Reduce single-use plastics</label>
+                        </div>
+                        <div class="commitment-item">
+                            <input type="checkbox" id="commitment8" name="commitment" value="Recycle properly">
+                            <label for="commitment8">Recycle properly</label>
+                        </div>
+                        <div class="commitment-item">
+                            <input type="checkbox" id="commitment9" name="commitment" value="Compost food waste">
+                            <label for="commitment9">Compost food waste</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="privacy-note">Mobile Number and Email are required for validation but never shown publicly. Data is used only for verification and engagement.</p>
+                
+                <button type="submit" class="btn">Submit Pledge</button>
+            </form>
+            
+            <div id="certificate" class="certificate">
+                <h2>Climate Action Certificate</h2>
+                <p>This certificate acknowledges that</p>
+                <div class="certificate-name" id="cert-name">Alex Johnson</div>
+                <div class="certificate-statement">is Cool Enough to Care!</div>
+                <div class="certificate-rating" id="cert-rating">★★★★</div>
+                <p>has pledged to take climate-positive actions in their daily life.</p>
+                <p>Thank you for joining the global movement for a sustainable future.</p>
+                <p>Date: <span id="cert-date">June 15, 2023</span></p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="pledge-wall">
+        <div class="container">
+            <h2>Climate Action Pledge Wall</h2>
+            <p>See others who have taken the pledge</p>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="filter-profile">Filter by Profile:</label>
+                    <select id="filter-profile">
+                        <option value="All">All Profiles</option>
+                        <option value="Student">Student</option>
+                        <option value="Working Professional">Working Professional</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                
+            </div>
+            
+            <table id="pledgeTable">
+                <thead>
+                    <tr>
+                        <th>Pledge ID</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>State</th>
+                        <th>Profile</th>
+                        <th>Love for Planet</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PLEDGE1001</td>
+                        <td>Alex Johnson</td>
+                        <td>2023-06-10</td>
+                        <td>California</td>
+                        <td>Student</td>
+                        <td class="stars">★★★★</td>
+                    </tr>
+                    <tr>
+                        <td>PLEDGE1002</td>
+                        <td>Maria Garcia</td>
+                        <td>2023-06-11</td>
+                        <td>New York</td>
+                        <td>Working Professional</td>
+                        <td class="stars">★★★★★</td>
+                    </tr>
+                    <tr>
+                        <td>PLEDGE1003</td>
+                        <td>James Smith</td>
+                        <td>2023-06-12</td>
+                        <td>Texas</td>
+                        <td>Other</td>
+                        <td class="stars">★★★</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
