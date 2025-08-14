@@ -1,34 +1,15 @@
-
-const firebaseConfig = {
-    apiKey: "AIzaSyBMqsIxSUs7EL5iAgqKNF2xOh5KpqKyt18",
-    authDomain: "mezia-e9ad9.firebaseapp.com",
-    databaseURL: "https://mezia-e9ad9-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "mezia-e9ad9",
-    storageBucket: "mezia-e9ad9.firebasestorage.app",
-    messagingSenderId: "347636068289",
-    appId: "1:347636068289:web:f5767a0c3ae4ef3ef50940",
-    measurementId: "G-ZMPDFCVLHW"
-};
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
-
 document.addEventListener('DOMContentLoaded', function () {
-    const pledges = [];
+    const sheetURL = "https://script.google.com/macros/s/AKfycbzHAHl3nX8l2-aflLvGboidIRAoiyhO_y2LDCEl-0JPyV1FOlOXBiFvZGHSK6mhPZaQ/exec";
 
-    // Load pledges from Firebase
-    database.ref("pledges").on("value", snapshot => {
-        pledges.length = 0;
-        const data = snapshot.val();
-        if (data) {
-            Object.values(data).forEach(pledge => pledges.push(pledge));
-        }
-        initializePledgeWall();
-        updateStats();
-    });
+    const pledges = [
+        { id: "PLEDGE1001", name: "Alex Johnson", date: "2023-06-10", state: "California", profile: "Student", stars: 4 },
+        { id: "PLEDGE1002", name: "Maria Garcia", date: "2023-06-11", state: "New York", profile: "Working Professional", stars: 5 },
+        { id: "PLEDGE1003", name: "James Smith", date: "2023-06-12", state: "Texas", profile: "Other", stars: 3 }
+    ];
 
-    // Handle form submit
+    initializePledgeWall();
+    updateStats();
+
     document.getElementById('pledgeForm').addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -48,18 +29,36 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
+        const stars = Math.min(5, commitments.length);
         const newPledge = {
             id: 'PLEDGE' + (1000 + pledges.length + 1),
             name,
             date: new Date().toISOString().split('T')[0],
             state,
             profile,
-            stars: Math.min(5, commitments.length)
+            stars: stars,
+            email: email,
+            phone: phone
         };
 
-        database.ref("pledges").push(newPledge);
-        showCertificate(name, newPledge.stars);
-        this.reset();
+        // Save to Google Sheets
+        fetch(sheetURL, {
+            method: 'POST',
+            body: JSON.stringify(newPledge)
+        })
+        .then(res => res.json())
+        .then(response => {
+            console.log(response); // Debug
+            pledges.push(newPledge);
+            addPledgeToTable(newPledge);
+            updateStats();
+            showCertificate(name, stars);
+            document.getElementById('pledgeForm').reset();
+        })
+        .catch(err => {
+            console.error('Error:', err);
+            alert('Error submitting pledge.');
+        });
     });
 
     function updateStats() {
